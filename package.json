@@ -1,0 +1,18 @@
+{
+	"name": "@rsc-utils/string-utils",
+	"version": "v0.0.0-alpha",
+	"license": "ISC",
+	"main": "build/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc --build",
+		"postbuild": "echo 'build done'",
+		"test": "node --es-module-specifier-resolution=node ./test/index.mjs"
+	},
+	"devDependencies": {
+		"@types/node": "^18.18.7"
+	},
+	"dependencies": {
+		"@rsc-utils/type-utils": "github:rpg-sage-creative/type-utils"
+	}
+}
