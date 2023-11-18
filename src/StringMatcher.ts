@@ -1,39 +1,14 @@
-import type { Optional, TMatcher, TMatcherResolvable } from "@rsc-utils/type-utils";
+import type { Matcher, MatcherResolvable, Optional } from "@rsc-utils/type-utils";
 import { normalizeAscii, removeAccents } from "./normalize";
 import { cleanWhitespace } from "./whitespace";
 
-//#region StringMatcher.ts
-
-/** Contains all the properties that represent a StringMatcher. */
-export type TStringMatcher = TMatcher & {
-
-	/** Stores StringMatcher.clean(value) */
-	clean: string;
-
-	/** Stores string.isBlank(value) */
-	isBlank: boolean;
-
-	/** Stores string.toLowerCase() */
-	lower: string;
-
-	/** Stores the raw value. */
-	value: Optional<string>;
-};
-
-/** Convenience type for Optional<string> | TStringMatcher */
-export type TStringMatcherResolvable = Optional<string> | TStringMatcher;
-
-//#endregion
-
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
-export class StringMatcher implements TStringMatcher {
-	public constructor(
-		/** Stores the raw value. */
-		public value: Optional<string>
-	) {
-		this.clean = StringMatcher.clean(this.value ?? "");
+export class StringMatcher implements Matcher {
+	public constructor(value: Optional<string>) {
+		this.clean = StringMatcher.clean(value ?? "");
 		this.isBlank = this.clean === "";
-		this.lower = this.value?.toLowerCase() ?? "";
+		this.lower = value?.toLowerCase() ?? "";
+		this.value = value;
 	}
 
 	/** Stores StringMatcher.clean(value) */
@@ -45,19 +20,20 @@ export class StringMatcher implements TStringMatcher {
 	/** Stores string.toLowerCase() */
 	public lower: string;
 
+	/** Stores the raw value. */
+	public value: Optional<string>;
+
 	/** Compares the clean values. */
-	public matches(other: TMatcherResolvable): boolean;
-	public matches(other: TStringMatcherResolvable): boolean;
-	public matches(other: TStringMatcherResolvable): boolean {
+	public matches(other: MatcherResolvable): boolean {
 		if (other === null || other === undefined) {
 			return false;
 		}
-		const otherClean = (other as TStringMatcher).clean ?? StringMatcher.clean(String(other));
+		const otherClean = (other as StringMatcher).clean ?? StringMatcher.clean(String(other));
 		return otherClean === this.clean;
 	}
 
 	/** Compares the clean values until it finds a match. */
-	public matchesAny(others: TStringMatcherResolvable[]): boolean {
+	public matchesAny(others: MatcherResolvable[]): boolean {
 		return others.find(other => this.matches(other)) !== undefined;
 	}
 
@@ -75,17 +51,17 @@ export class StringMatcher implements TStringMatcher {
 	}
 
 	/** Convenience for StringMatcher.from(value).matches(other) */
-	public static matches(value: TStringMatcherResolvable, other: TStringMatcherResolvable): boolean {
+	public static matches(value: MatcherResolvable, other: MatcherResolvable): boolean {
 		return StringMatcher.from(value).matches(other);
 	}
 
 	/** Convenience for StringMatcher.from(value).matchesAny(others) */
-	public static matchesAny(value: TStringMatcherResolvable, others: TStringMatcherResolvable[]): boolean {
+	public static matchesAny(value: MatcherResolvable, others: MatcherResolvable[]): boolean {
 		return StringMatcher.from(value).matchesAny(others);
 	}
 
 	/** Convenience for new StringMatcher(value) */
-	public static from(value: Optional<TStringMatcherResolvable>): StringMatcher {
-		return new StringMatcher(value instanceof StringMatcher ? value.value : value as string);
+	public static from(value: Optional<MatcherResolvable>): StringMatcher {
+		return new StringMatcher(typeof(value) === "string" ? value : value?.value);
 	}
 }
