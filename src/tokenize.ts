@@ -1,3 +1,5 @@
+import { matchCodeBlocks } from "./internal/matchCodeBlocks";
+
 //#region types
 
 /** A group of regular expressions used for Tokenizer.tokenize() */
@@ -30,7 +32,7 @@ export type TokenData<Key extends string = string> = {
 * result => [{ token="this", type="word" }, { token=" ", type="whitespace" }, { token="is", type="word" }, ... ]
 *
 */
-export function tokenize(input: string, parsers: TokenParsers, defaultKey = "unknown"): TokenData[] {
+function _tokenize(input: string, parsers: TokenParsers, defaultKey = "unknown"): TokenData[] {
 	const tokens: TokenData[] = [];
 	let matchIndex: number,
 		token: TokenData | null;
@@ -66,4 +68,16 @@ export function tokenize(input: string, parsers: TokenParsers, defaultKey = "unk
 		input = input.slice(matchIndex + (token?.token.length ?? 0));
 	}
 	return tokens;
+}
+
+
+export function tokenize(content: string, parsers: RegExp): [] {
+	//match redacted blocks
+	const matches = matchCodeBlocks(content);
+	//split the content around the redacted blocks
+	matches;
+	//tokenize the non-redacted blocks
+	parsers;
+	_tokenize;
+	return [];
 }
