@@ -70,7 +70,7 @@ function _tokenize(input: string, parsers: TokenParsers, defaultKey = "unknown")
 	return tokens;
 }
 
-
+/** provide an option that specifies is redactions are excluded. */
 export function tokenize(content: string, parsers: RegExp): [] {
 	//match redacted blocks
 	const matches = matchCodeBlocks(content);
