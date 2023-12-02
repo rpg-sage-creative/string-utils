@@ -1,5 +1,6 @@
-import { normalizeAscii, removeAccents } from "./normalize";
-import { cleanWhitespace } from "./whitespace";
+import { normalizeAscii } from "./normalize/normalizeAscii.js";
+import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
+import { removeAccents } from "./normalize/removeAccents.js";
 export class StringMatcher {
     constructor(value) {
         this.clean = StringMatcher.clean(value ?? "");

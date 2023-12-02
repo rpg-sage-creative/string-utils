@@ -1,5 +1,5 @@
 import type { Optional } from "@rsc-utils/type-utils";
-import { isBlank } from "./blank.js";
+import { isBlank } from "./blank/isBlank.js";
 
 /**
  * Capitalizes the first letter of the given string.

@@ -4,13 +4,7 @@
 		"alwaysStrict": true,
 		"allowSyntheticDefaultImports": true,
 
-		// "composite": true,
-
-		"declaration": true,
-
 		"forceConsistentCasingInFileNames": true,
-
-		// "incremental": true,
 
 		"lib": [ "DOM", "ES2022" ],
 
@@ -42,5 +36,6 @@
 		"stripInternal": true,
 
 		"target": "ES2022"
-	}
+	},
+	"include": ["src"]
 }

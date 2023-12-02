@@ -1,6 +1,7 @@
 import type { Matcher, MatcherResolvable, Optional } from "@rsc-utils/type-utils";
-import { normalizeAscii, removeAccents } from "./normalize";
-import { cleanWhitespace } from "./whitespace";
+import { normalizeAscii } from "./normalize/normalizeAscii.js";
+import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
+import { removeAccents } from "./normalize/removeAccents.js";
 
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
 export class StringMatcher implements Matcher {

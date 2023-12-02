@@ -1,0 +1,14 @@
+import { dequote, quote } from "../quote";
+import { isKeyValueArg } from "./isKeyValueArg.js";
+export function parseKeyValueArg(input, key) {
+    if (isKeyValueArg(input, key)) {
+        const index = input.indexOf("=");
+        const key = input.slice(0, index);
+        const keyLower = key.toLowerCase();
+        const value = dequote(input.slice(index + 1).trim());
+        const quoted = quote(value);
+        const clean = `${keyLower}=${quoted}`;
+        return { key, keyLower, value, clean };
+    }
+    return null;
+}

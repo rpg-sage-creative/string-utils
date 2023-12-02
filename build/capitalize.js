@@ -1,4 +1,4 @@
-import { isBlank } from "./blank.js";
+import { isBlank } from "./blank/isBlank.js";
 export function capitalize(value, splitter, joiner) {
     if (isBlank(value)) {
         return value;
