@@ -1,3 +1,3 @@
 export function getQuotedRegexSource(s) {
-    return `(?:“[^”]${s}”|„[^“]${s}“|„[^”]${s}”|"[^"]${s}")`;
+    return `(?:“[^”]${s}”|„[^“]${s}“|„[^”]${s}”|"[^"]${s}"|'[^']${s}'|‘[^’]${s}’)`;
 }
