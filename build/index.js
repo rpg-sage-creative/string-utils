@@ -5,6 +5,8 @@ export * from "./keyValueArg";
 export * from "./markdown";
 export * from "./normalize";
 export * from "./quote";
+export * from "./regex";
+export * from "./url";
 export * from "./whitespace";
 export * from "./wrap";
 export * from "./capitalize.js";

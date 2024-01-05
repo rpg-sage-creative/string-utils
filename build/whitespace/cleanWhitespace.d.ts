@@ -1,5 +1,7 @@
 type Options = {
+    /** use HORIZONTAL_WHITESPACE_REGEX if true, \s otherwise */
     horizontalOnly?: boolean;
+    /** use replacement instead of " " */
     replacement?: string;
 };
 /**

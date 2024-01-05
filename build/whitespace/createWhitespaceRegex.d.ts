@@ -1,11 +1,11 @@
-type Options = {
-    globalFlag?: boolean;
+import type { RegExpCreateOptions } from "../regex/RegExpCreateOptions.js";
+type Options = RegExpCreateOptions & {
+    /** uses HORIZONTAL_WHITESPACE_REGEX if true, \s otherwise */
     horizontalOnly?: boolean;
-    modifier?: "" | "*" | "+";
 };
 /**
  * Convenience for creating/sharing whitespace regex in case we change it later.
- * Uses default options: { globalFlag:false, horizontalOnly:false, modifier:"+" }
+ * Uses default options: { globalFlag:false, horizontalOnly:false, quantifier:"+" }
  */
 export declare function createWhitespaceRegex(): RegExp;
 /**
