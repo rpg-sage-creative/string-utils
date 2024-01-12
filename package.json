@@ -6,16 +6,18 @@
 	"type": "module",
 	"scripts": {
 		"prebuild": "npm run clean",
-		"preclean": "rm -rf ./build",
-		"clean": "tsc --build --clean",
+		"clean": "rm -rf ./build",
 		"postclean": "npm run indexes",
 		"indexes": "node ./node_modules/@rsc-utils/npm-utils indexTs -r",
 		"build": "tsc --build",
-		"postbuild": "npm run types",
+		"postbuild": "npm run build-info",
+		"build-info": "bash ./node_modules/@rsc-utils/npm-utils/scripts/build-info.sh",
+		"postbuild-info": "npm run types",
 		"types": "tsc --build tsconfig.d.json",
 		"posttypes": "echo 'build done'",
 		"test": "node --es-module-specifier-resolution=node ./test/index.mjs",
-		"posttest": "echo 'test done'"
+		"posttest": "echo 'test done'",
+		"release": "bash ./node_modules/@rsc-utils/npm-utils/scripts/release.sh"
 	},
 	"devDependencies": {
 		"@rsc-utils/npm-utils": "github:rpg-sage-creative/npm-utils",
