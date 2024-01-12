@@ -1,12 +1,12 @@
 {
-"buildTs":1705039285000,
-"buildDate":"2024-01-11",
-"buildTime":"2201",
+"buildTs":1705085445000,
+"buildDate":"2024-01-12",
+"buildTime":"1050",
 "branch":"main",
-"commit":"59bad552e20adbb928eec2aff6983bf3d2c98a78",
-"commitSubject":"updated scripts for npm utils build/release",
-"commitTs":1705039189000,
-"commitDate":"2024-01-11",
-"commitTime":"2159",
+"commit":"ccf611d66ed761270ab4f33dc3bbbf682c8775a4",
+"commitSubject":"only run build-info on release",
+"commitTs":1705085416000,
+"commitDate":"2024-01-12",
+"commitTime":"1050",
 "author":"Randal T Meyer"
 }
