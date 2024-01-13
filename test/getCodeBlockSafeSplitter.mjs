@@ -1,4 +1,4 @@
-import { getCodeBlockSafeSplitter } from "../build";
+import { getCodeBlockSafeSplitter } from "../build/index.js";
 
 export function testGetCodeBlockSafeSplitter() {
 	const splitter = getCodeBlockSafeSplitter("\n");
@@ -17,7 +17,7 @@ export function testGetCodeBlockSafeSplitter() {
 		["first\n``left`\nright``\nthird",["first","``left`\nright``","third"]],
 		["fir``st\n`left\nright``\nthird",["fir``st\n`left\nright``","third"]],
 		[";\n`jk\nl;kj\n`\nj`\nkj;`\njk`\njk;`\nk;lj`k\n;`;\njkl`\n",[";","`jk\nl;kj\n`","j`\nkj;`","jk`\njk;`","k;lj`k\n;`;","jkl`",""]],
-		["pc::Well?\n`hoobla::What?`\ngm::...and there they waited ...",[]],
+		["pc::Well?\n`hoobla::What?`\ngm::...and `there\nthey` waited ...",["pc::Well?","`hoobla::What?`","gm::...and `there\nthey` waited ..."]],
 	];
 	strings.forEach(([raw, limitOrExpected, expectedOrUndefined]) => {
 		const limit = typeof(limitOrExpected) === "number" ? limitOrExpected : undefined;

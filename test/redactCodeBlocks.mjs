@@ -1,4 +1,4 @@
-import { redactCodeBlocks } from "../build"
+import { redactCodeBlocks } from "../build/index.js"
 
 /** A handful of tests to ensure the logic is working. */
 export function testRedactCodeBlocks() {
