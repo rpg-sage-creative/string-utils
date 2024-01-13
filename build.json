@@ -1,12 +1,11 @@
 {
-"buildTs":1705085445000,
-"buildDate":"2024-01-12",
-"buildTime":"1050",
+"version":"0.0.2",
 "branch":"main",
-"commit":"ccf611d66ed761270ab4f33dc3bbbf682c8775a4",
-"commitSubject":"only run build-info on release",
-"commitTs":1705085416000,
-"commitDate":"2024-01-12",
-"commitTime":"1050",
+"commit":"2c45fbf331b90de19f6aecdbd08123fdeb7fe535",
+"commitSubject":"fix imports; fix tests",
+"commitTs":1705185012000,
+"commitDate":"2024-01-13-1430",
+"buildTs":1705185029000,
+"buildDate":"2024-01-13-1430",
 "author":"Randal T Meyer"
 }
