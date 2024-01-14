@@ -23,7 +23,6 @@
 	},
 	"dependencies": {
 		"@rsc-utils/type-utils": "github:rpg-sage-creative/type-utils",
-		"emoji-regex": "^10.3.0",
 		"xregexp": "^5.1.1"
 	}
 }
