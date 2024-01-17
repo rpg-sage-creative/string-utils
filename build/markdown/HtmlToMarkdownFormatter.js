@@ -52,7 +52,7 @@ export class HtmlToMarkdownFormatter {
         this.text = htmlToMarkdown(this.text, "ol", (list, attributes) => {
             const start = isNaN(+attributes.get("start")) ? 1 : +attributes.get("start");
             let index = 0;
-            return htmlToMarkdown(list, "li", value => `\n> **${start + index++}.** ${value}`);
+            return htmlToMarkdown(list, "li", value => `\n **${start + index++}.** ${value}`);
         });
         return this;
     }
@@ -90,8 +90,8 @@ export class HtmlToMarkdownFormatter {
     }
     formatUnorderedList() {
         this.text = htmlToMarkdown(this.text, "ul", parentList => {
-            const childHandled = htmlToMarkdown(parentList, "ul", nestedList => htmlToMarkdown(nestedList, "li", value => `\n> - ${value}`));
-            return htmlToMarkdown(childHandled, "li", value => `\n> - ${value}`);
+            const childHandled = htmlToMarkdown(parentList, "ul", nestedList => htmlToMarkdown(nestedList, "li", value => `\n - ${value}`));
+            return htmlToMarkdown(childHandled, "li", value => `\n - ${value}`);
         });
         return this;
     }
