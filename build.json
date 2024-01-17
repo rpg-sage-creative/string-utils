@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.4",
+"version":"0.0.5",
 "branch":"main",
-"commit":"e69b6f8da4872f313425704e1451ca507cbd46f8",
-"commitSubject":"fix formatUnorderedList",
-"commitTs":1705361135000,
-"commitDate":"2024-01-15-1525",
-"buildTs":1705361156000,
-"buildDate":"2024-01-15-1525",
+"commit":"f4ea66f03028abf2141c1bd3d8254c46862d53c0",
+"commitSubject":"remove ">" from lists",
+"commitTs":1705451485000,
+"commitDate":"2024-01-16-1631",
+"buildTs":1705451517000,
+"buildDate":"2024-01-16-1631",
 "author":"Randal T Meyer"
 }
