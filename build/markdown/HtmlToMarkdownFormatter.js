@@ -91,7 +91,7 @@ export class HtmlToMarkdownFormatter {
     formatUnorderedList() {
         this.text = htmlToMarkdown(this.text, "ul", parentList => {
             const childHandled = htmlToMarkdown(parentList, "ul", nestedList => htmlToMarkdown(nestedList, "li", value => `\n - ${value}`));
-            return htmlToMarkdown(childHandled, "li", value => `\n - ${value}`);
+            return htmlToMarkdown(childHandled, "li", value => `\n- ${value}`);
         });
         return this;
     }
