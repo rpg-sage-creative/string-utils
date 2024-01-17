@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.5",
+"version":"0.0.6",
 "branch":"main",
-"commit":"f4ea66f03028abf2141c1bd3d8254c46862d53c0",
-"commitSubject":"remove ">" from lists",
-"commitTs":1705451485000,
-"commitDate":"2024-01-16-1631",
-"buildTs":1705451517000,
-"buildDate":"2024-01-16-1631",
+"commit":"dd3822e6fdedc32477a06f9b34ee86d9f3a9c023",
+"commitSubject":"fix UL to not indent primary list",
+"commitTs":1705451921000,
+"commitDate":"2024-01-16-1638",
+"buildTs":1705451953000,
+"buildDate":"2024-01-16-1639",
 "author":"Randal T Meyer"
 }
