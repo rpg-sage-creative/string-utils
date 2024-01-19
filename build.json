@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.6",
+"version":"0.0.7",
 "branch":"main",
-"commit":"9e2170958cdb19297e1e6bf31e5a21485ad70bbd",
-"commitSubject":"build(versioning): Release - Update app version",
-"commitTs":1705451953000,
-"commitDate":"2024-01-16-1639",
-"buildTs":1705452911000,
-"buildDate":"2024-01-16-1655",
+"commit":"7f338939c09c0871143f88e63d9c45c60c9011ce",
+"commitSubject":"fix new line replacement",
+"commitTs":1705626824000,
+"commitDate":"2024-01-18-1713",
+"buildTs":1705626841000,
+"buildDate":"2024-01-18-1714",
 "author":"Randal T Meyer"
 }
