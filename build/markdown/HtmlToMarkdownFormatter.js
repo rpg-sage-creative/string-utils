@@ -45,7 +45,9 @@ export class HtmlToMarkdownFormatter {
         return this;
     }
     formatNewLine() {
-        this.text = htmlToMarkdown(this.text, "br/?", "\n");
+        if (this.text) {
+            this.text = this.text.replace(/<br\/?>/gi, "\n");
+        }
         return this;
     }
     formatOrderedList() {
