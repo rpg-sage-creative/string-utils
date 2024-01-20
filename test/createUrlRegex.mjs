@@ -1,3 +1,4 @@
+import { assert } from "@rsc-utils/console-utils";
 import { createUrlRegex } from "../build/index.js";
 
 export function testCreateUrlRegex() {
@@ -14,9 +15,9 @@ export function testCreateUrlRegex() {
 		"ftps://google.com:80/q?word=text#marked",
 	];
 	goodUrls.forEach(url => {
-		console.assert(regex.exec(url)?.[0] === url, `Invalid url: ${url}`);
+		assert(regex.exec(url)?.[0] === url, `Invalid url: ${url}`);
 	});
 	badUrls.forEach(url => {
-		console.assert(regex.exec(url)?.[0] !== url, `Valid url: ${url}`);
+		assert(regex.exec(url)?.[0] !== url, `Valid url: ${url}`);
 	});
 }

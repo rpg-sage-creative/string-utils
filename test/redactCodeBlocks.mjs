@@ -1,4 +1,5 @@
-import { redactCodeBlocks } from "../build/index.js"
+import { assert } from "@rsc-utils/console-utils";
+import { redactCodeBlocks } from "../build/index.js";
 
 /** A handful of tests to ensure the logic is working. */
 export function testRedactCodeBlocks() {
@@ -18,6 +19,6 @@ export function testRedactCodeBlocks() {
 	];
 	tests.forEach(([raw, expected]) => {
 		const actual = redactCodeBlocks(raw);
-		console.assert(expected === actual, `"${raw}" expected "${expected}" got "${actual}"`);
+		assert(expected === actual, `"${raw}" expected "${expected}" got "${actual}"`);
 	});
 }

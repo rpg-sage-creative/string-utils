@@ -1,3 +1,4 @@
+import { assert } from "@rsc-utils/console-utils";
 import { getCodeBlockSafeSplitter } from "../build/index.js";
 
 export function testGetCodeBlockSafeSplitter() {
@@ -24,6 +25,6 @@ export function testGetCodeBlockSafeSplitter() {
 		/** @type {string[]} */
 		const expected = expectedOrUndefined ?? limitOrExpected ?? [];
 		const actual = raw.split(splitter, limit);
-		console.assert(expected.length === actual.length && expected.every((s, i) => actual[i] === s), `"${raw.replace(/\n/g, "\\n")}"${limit===undefined?"":`(${limit})`} expected ${JSON.stringify(expected)} got ${JSON.stringify(actual)}`)
+		assert(expected.length === actual.length && expected.every((s, i) => actual[i] === s), `"${raw.replace(/\n/g, "\\n")}"${limit===undefined?"":`(${limit})`} expected ${JSON.stringify(expected)} got ${JSON.stringify(actual)}`)
 	});
 }
