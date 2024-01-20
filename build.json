@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.7",
+"version":"0.0.8",
 "branch":"main",
-"commit":"7f338939c09c0871143f88e63d9c45c60c9011ce",
-"commitSubject":"fix new line replacement",
-"commitTs":1705626824000,
-"commitDate":"2024-01-18-1713",
-"buildTs":1705626841000,
-"buildDate":"2024-01-18-1714",
+"commit":"3267d781f16885b4e9c8c4787e3803c532951416",
+"commitSubject":"update UuidMatcher to new Matcher",
+"commitTs":1705733425000,
+"commitDate":"2024-01-19-2250",
+"buildTs":1705733541000,
+"buildDate":"2024-01-19-2252",
 "author":"Randal T Meyer"
 }
