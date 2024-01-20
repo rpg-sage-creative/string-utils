@@ -30,6 +30,11 @@ export class StringMatcher implements Matcher {
 		return this._isValid ?? (this._isValid = isDefined(this.value));
 	}
 
+	private _lower?: string;
+	public get lower(): string {
+		return this._lower ?? (this._lower = this.value?.toLowerCase() ?? "");
+	}
+
 	/** The value used to compare to other values. */
 	private _matchValue?: string;
 

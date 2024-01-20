@@ -16,6 +16,10 @@ export class StringMatcher {
     get isValid() {
         return this._isValid ?? (this._isValid = isDefined(this.value));
     }
+    _lower;
+    get lower() {
+        return this._lower ?? (this._lower = this.value?.toLowerCase() ?? "");
+    }
     _matchValue;
     get matchValue() {
         return this._matchValue ?? (this._matchValue = StringMatcher.clean(this.value));

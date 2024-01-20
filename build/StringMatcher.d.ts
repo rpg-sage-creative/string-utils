@@ -12,6 +12,8 @@ export declare class StringMatcher implements Matcher {
     private _isValid?;
     /** Returns isDefined(value) */
     get isValid(): boolean;
+    private _lower?;
+    get lower(): string;
     /** The value used to compare to other values. */
     private _matchValue?;
     /** The value used to compare to other values. */
