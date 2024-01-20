@@ -1,41 +1,71 @@
-import type { Matcher, MatcherResolvable, Optional } from "@rsc-utils/type-utils";
+import { isDefined, type Matcher, type MatcherResolvable, type Optional } from "@rsc-utils/type-utils";
+import { isBlank } from "./blank/isBlank.js";
+import { isNotBlank } from "./blank/isNotBlank.js";
 import { normalizeAscii } from "./normalize/normalizeAscii.js";
-import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
 import { removeAccents } from "./normalize/removeAccents.js";
+import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
+
+/** Convenience type for UUID | UuidMatcher */
+export type UuidMatcherResolvable = Optional<string> | StringMatcher;
 
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
 export class StringMatcher implements Matcher {
 	public constructor(value: Optional<string>) {
-		this.clean = StringMatcher.clean(value ?? "");
-		this.isBlank = this.clean === "";
-		this.lower = value?.toLowerCase() ?? "";
 		this.value = value;
 	}
 
-	/** Stores StringMatcher.clean(value) */
-	public clean: string;
+	/** Stores isNotBlank(value) */
+	private _isNonNil?: boolean;
 
-	/** Stores string.isBlank(value) */
-	public isBlank: boolean;
-
-	/** Stores string.toLowerCase() */
-	public lower: string;
-
-	/** Stores the raw value. */
-	public value: Optional<string>;
-
-	/** Compares the clean values. */
-	public matches(other: MatcherResolvable): boolean {
-		if (other === null || other === undefined) {
-			return false;
-		}
-		const otherClean = (other as StringMatcher).clean ?? StringMatcher.clean(String(other));
-		return otherClean === this.clean;
+	/** Returns isNotBlank(value) */
+	public get isNonNil(): boolean {
+		return this._isNonNil ?? (this._isNonNil = isNotBlank(this.value));
 	}
 
-	/** Compares the clean values until it finds a match. */
-	public matchesAny(others: MatcherResolvable[]): boolean {
-		return others.find(other => this.matches(other)) !== undefined;
+	/** Stores isDefined(value) */
+	private _isValid?: boolean;
+
+	/** Returns isDefined(value) */
+	public get isValid(): boolean {
+		return this._isValid ?? (this._isValid = isDefined(this.value));
+	}
+
+	/** The value used to compare to other values. */
+	private _matchValue?: string;
+
+	/** The value used to compare to other values. */
+	public get matchValue(): string {
+		return this._matchValue ?? (this._matchValue = StringMatcher.clean(this.value));
+	}
+
+	/** Stores the raw value. */
+	public value?: string | null;
+
+	/** Compares the clean values. */
+	public matches<T extends MatcherResolvable>(other: T): boolean {
+		if (!this.isValid || other === null || other === undefined) {
+			return false;
+		}
+		if (typeof(other) === "string") {
+			if (this.isNonNil) {
+				return this.matchValue === StringMatcher.clean(other);
+			}
+			return isBlank(other);
+		}
+		if (!other.isValid || this.isNonNil !== other.isNonNil) {
+			return false;
+		}
+		return this.matchValue === other.matchValue;
+	}
+
+	/** Returns true if any of the given values are considered a match. */
+	public matchesAny<T extends MatcherResolvable>(values: T[]): boolean;
+
+	/** Returns true if any of the given values are considered a match. */
+	public matchesAny<T extends MatcherResolvable>(...values: T[]): boolean;
+
+	public matchesAny<T extends MatcherResolvable>(...args: T[]): boolean {
+		return args.flat(1).some(value => this.matches(value));
 	}
 
 	/** Returns the original value. */

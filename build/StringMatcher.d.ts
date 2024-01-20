@@ -1,19 +1,29 @@
-import type { Matcher, MatcherResolvable, Optional } from "@rsc-utils/type-utils";
+import { type Matcher, type MatcherResolvable, type Optional } from "@rsc-utils/type-utils";
+/** Convenience type for UUID | UuidMatcher */
+export type UuidMatcherResolvable = Optional<string> | StringMatcher;
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
 export declare class StringMatcher implements Matcher {
     constructor(value: Optional<string>);
-    /** Stores StringMatcher.clean(value) */
-    clean: string;
-    /** Stores string.isBlank(value) */
-    isBlank: boolean;
-    /** Stores string.toLowerCase() */
-    lower: string;
+    /** Stores isNotBlank(value) */
+    private _isNonNil?;
+    /** Returns isNotBlank(value) */
+    get isNonNil(): boolean;
+    /** Stores isDefined(value) */
+    private _isValid?;
+    /** Returns isDefined(value) */
+    get isValid(): boolean;
+    /** The value used to compare to other values. */
+    private _matchValue?;
+    /** The value used to compare to other values. */
+    get matchValue(): string;
     /** Stores the raw value. */
-    value: Optional<string>;
+    value?: string | null;
     /** Compares the clean values. */
-    matches(other: MatcherResolvable): boolean;
-    /** Compares the clean values until it finds a match. */
-    matchesAny(others: MatcherResolvable[]): boolean;
+    matches<T extends MatcherResolvable>(other: T): boolean;
+    /** Returns true if any of the given values are considered a match. */
+    matchesAny<T extends MatcherResolvable>(values: T[]): boolean;
+    /** Returns true if any of the given values are considered a match. */
+    matchesAny<T extends MatcherResolvable>(...values: T[]): boolean;
     /** Returns the original value. */
     toString(): string;
     /**

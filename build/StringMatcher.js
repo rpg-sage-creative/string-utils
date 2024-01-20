@@ -1,26 +1,43 @@
+import { isDefined } from "@rsc-utils/type-utils";
+import { isBlank } from "./blank/isBlank.js";
+import { isNotBlank } from "./blank/isNotBlank.js";
 import { normalizeAscii } from "./normalize/normalizeAscii.js";
-import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
 import { removeAccents } from "./normalize/removeAccents.js";
+import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
 export class StringMatcher {
     constructor(value) {
-        this.clean = StringMatcher.clean(value ?? "");
-        this.isBlank = this.clean === "";
-        this.lower = value?.toLowerCase() ?? "";
         this.value = value;
     }
-    clean;
-    isBlank;
-    lower;
+    _isNonNil;
+    get isNonNil() {
+        return this._isNonNil ?? (this._isNonNil = isNotBlank(this.value));
+    }
+    _isValid;
+    get isValid() {
+        return this._isValid ?? (this._isValid = isDefined(this.value));
+    }
+    _matchValue;
+    get matchValue() {
+        return this._matchValue ?? (this._matchValue = StringMatcher.clean(this.value));
+    }
     value;
     matches(other) {
-        if (other === null || other === undefined) {
+        if (!this.isValid || other === null || other === undefined) {
             return false;
         }
-        const otherClean = other.clean ?? StringMatcher.clean(String(other));
-        return otherClean === this.clean;
+        if (typeof (other) === "string") {
+            if (this.isNonNil) {
+                return this.matchValue === StringMatcher.clean(other);
+            }
+            return isBlank(other);
+        }
+        if (!other.isValid || this.isNonNil !== other.isNonNil) {
+            return false;
+        }
+        return this.matchValue === other.matchValue;
     }
-    matchesAny(others) {
-        return others.find(other => this.matches(other)) !== undefined;
+    matchesAny(...args) {
+        return args.flat(1).some(value => this.matches(value));
     }
     toString() {
         return this.value ?? "";
