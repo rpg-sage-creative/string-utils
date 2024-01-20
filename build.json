@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.8",
+"version":"0.0.9",
 "branch":"main",
-"commit":"3267d781f16885b4e9c8c4787e3803c532951416",
-"commitSubject":"update UuidMatcher to new Matcher",
-"commitTs":1705733425000,
-"commitDate":"2024-01-19-2250",
-"buildTs":1705733541000,
-"buildDate":"2024-01-19-2252",
+"commit":"c889f5d67e1957dc9d64a581b6cca582afb590bb",
+"commitSubject":"add lower to StringMatcher",
+"commitTs":1705735752000,
+"commitDate":"2024-01-19-2329",
+"buildTs":1705735778000,
+"buildDate":"2024-01-19-2329",
 "author":"Randal T Meyer"
 }
