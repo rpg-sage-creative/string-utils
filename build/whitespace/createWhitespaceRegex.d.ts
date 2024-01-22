@@ -4,12 +4,9 @@ type Options = RegExpCreateOptions & {
     horizontalOnly?: boolean;
 };
 /**
- * Convenience for creating/sharing whitespace regex in case we change it later.
- * Uses default options: { globalFlag:false, horizontalOnly:false, quantifier:"+" }
+ * Convenience for creating/sharing whitespace regex.
+ * Default options: { globalFlag:false, horizontalOnly:false, quantifier:"+" }
  */
 export declare function createWhitespaceRegex(): RegExp;
-/**
- * Convenience for creating/sharing whitespace regex in case we change it later.
- */
 export declare function createWhitespaceRegex(options: Options): RegExp;
 export {};

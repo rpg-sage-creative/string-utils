@@ -1,11 +1,15 @@
 import { getQuotedRegexSource } from "../quote/getQuotedRegexSource.js";
+import { getWordCharacterRegexSource } from "../regex/getWordCharacterRegexSource.js";
+import { getWhitespaceRegexSource } from "../whitespace/getWhitespaceRegexSource.js";
 
-/** Returns the string source of our word character regex. */
-function getWordCharSource(s: "*" | "+" | ""): string {
-	return `[\\w\\pL\\pN]${s}`;
-}
-
-/** @internal Returns the string source of our key/value regex. */
-export function getKeyValueArgSource(key = getWordCharSource("+")): string {
-	return `${key}\\s*=+\\s*(?:${getQuotedRegexSource("*")}|\\S+)`;
+/**
+ * @internal
+ * Returns the string source of our key/value regex.
+ * @todo redo this logic to enforce a strict no space policy.
+ */
+export function getKeyValueArgSource(key?: string): string {
+	key = key ?? getWordCharacterRegexSource({ quantifier:"+" });
+	const space = getWhitespaceRegexSource({ horizontalOnly:true, quantifier:"*" });
+	const quotedRegexSource = getQuotedRegexSource({ lengthQuantifier:"*" });
+	return `${key}${space}=${space}(?:${quotedRegexSource}|\\S+)`;
 }

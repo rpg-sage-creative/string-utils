@@ -1,9 +1,9 @@
 import XRegExp from "xregexp";
-import { HORIZONTAL_WHITESPACE_REGEX } from "./consts.js";
+import { getWhitespaceRegexSource } from "./getWhitespaceRegexSource.js";
 export function createWhitespaceRegex(options) {
-    const flags = options?.globalFlag ? "g" : "";
-    const regex = options?.horizontalOnly ? HORIZONTAL_WHITESPACE_REGEX : "\\s";
+    const regex = getWhitespaceRegexSource({ horizontalOnly: options?.horizontalOnly });
     const quantifier = options?.quantifier ?? "+";
+    const flags = options?.globalFlag ? "g" : "";
     if (options?.capture) {
         if (options.capture === true) {
             return XRegExp(`(${regex}${quantifier})`, flags);

@@ -1,7 +1,9 @@
 import { getQuotedRegexSource } from "../quote/getQuotedRegexSource.js";
-function getWordCharSource(s) {
-    return `[\\w\\pL\\pN]${s}`;
-}
-export function getKeyValueArgSource(key = getWordCharSource("+")) {
-    return `${key}\\s*=+\\s*(?:${getQuotedRegexSource("*")}|\\S+)`;
+import { getWordCharacterRegexSource } from "../regex/getWordCharacterRegexSource.js";
+import { getWhitespaceRegexSource } from "../whitespace/getWhitespaceRegexSource.js";
+export function getKeyValueArgSource(key) {
+    key = key ?? getWordCharacterRegexSource({ quantifier: "+" });
+    const space = getWhitespaceRegexSource({ horizontalOnly: true, quantifier: "*" });
+    const quotedRegexSource = getQuotedRegexSource({ lengthQuantifier: "*" });
+    return `${key}${space}=${space}(?:${quotedRegexSource}|\\S+)`;
 }

@@ -1,5 +1,5 @@
 /** How many tokens to match with a particular RegExp expression. */
-export type RegeExpQuantifier = 
+export type RegExpQuantifier = 
 /** match one */
 ""
 /** match zero or more */
