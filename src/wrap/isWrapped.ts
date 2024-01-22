@@ -3,6 +3,15 @@
 export function isWrapped(input: string): string | false;
 
 /** Returns the given chars if it is wrapping the content. Retruns false otherwise. */
+export function isWrapped(input: string, chars: "[]"): string | false;
+
+/** Returns the given chars if it is wrapping the content. Retruns false otherwise. */
+export function isWrapped(input: string, chars: "{}"): string | false;
+
+/** Returns the given chars if it is wrapping the content. Retruns false otherwise. */
+export function isWrapped(input: string, chars: "()"): string | false;
+
+/** Returns the given chars if it is wrapping the content. Retruns false otherwise. */
 export function isWrapped(input: string, chars: string): string | false;
 
 export function isWrapped(input: string, chars?: string): string | false {

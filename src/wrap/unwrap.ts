@@ -3,6 +3,7 @@
 export function unwrap(input: string, chars: "[]"): string;
 export function unwrap(input: string, chars: "{}"): string;
 export function unwrap(input: string, chars: "()"): string;
+export function unwrap(input: string, chars: string): string;
 export function unwrap(input: string, chars: string): string {
 	const [l, r] = chars;
 	while (input.startsWith(l) && input.endsWith(r)) {
