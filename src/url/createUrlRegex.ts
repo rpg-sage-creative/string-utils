@@ -1,11 +1,15 @@
 import { RegExpCreateOptions } from "../regex/RegExpCreateOptions.js";
+import { wrap } from "../wrap/wrap.js";
 
 type Options = Omit<RegExpCreateOptions, "quantifier"> & {
 	/** use ^ and $ to anchor the url to the start/end of the string */
 	anchored?: boolean;
 
 	/** expects the two characters used to wrap the url, ex: <> for discord */
-	wrapped?: string;
+	wrapChars?: string;
+
+	/** determines if the .wrapped value is optional or not */
+	wrapOptional?: boolean;
 };
 
 function getProtocolRegex(): RegExp {
@@ -60,16 +64,20 @@ export function createUrlRegex(options?: Options): RegExp {
 		getQuerystringRegex().source,
 		getAnchorRegex().source
 	];
-	if (options?.wrapped?.length === 2) {
-		const [left, right] = options.wrapped.split("");
-		sources.unshift(left);
-		sources.push(right);
+	let regex = sources.join("");
+
+	if (options?.wrapChars) {
+		const wrapped = wrap(regex, options.wrapChars);
+		if (options.wrapOptional) {
+			regex = `(?:${regex}|${wrapped})`;
+		}else {
+			regex = wrapped;
+		}
 	}
+
 	if (options?.anchored) {
-		sources.unshift("^");
-		sources.push("$");
+		regex = wrap(regex, "^$");
 	}
-	const regex = sources.join("");
 
 	if (capture) {
 		if (capture === true) {
@@ -77,5 +85,5 @@ export function createUrlRegex(options?: Options): RegExp {
 		}
 		return new RegExp(`(?<${capture}>${regex})`, flags);
 	}
-	return new RegExp(sources.join(""), flags);
+	return new RegExp(regex, flags);
 }
