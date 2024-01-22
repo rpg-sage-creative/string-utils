@@ -2,3 +2,4 @@
 export declare function unwrap(input: string, chars: "[]"): string;
 export declare function unwrap(input: string, chars: "{}"): string;
 export declare function unwrap(input: string, chars: "()"): string;
+export declare function unwrap(input: string, chars: string): string;
