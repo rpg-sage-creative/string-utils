@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.9",
+"version":"0.0.10",
 "branch":"main",
-"commit":"c889f5d67e1957dc9d64a581b6cca582afb590bb",
-"commitSubject":"add lower to StringMatcher",
-"commitTs":1705735752000,
-"commitDate":"2024-01-19-2329",
-"buildTs":1705735778000,
-"buildDate":"2024-01-19-2329",
+"commit":"e4fbc76d43107566c5439f6a42470e5bc3c626d8",
+"commitSubject":"add stringOrUndefined",
+"commitTs":1705942084000,
+"commitDate":"2024-01-22-0848",
+"buildTs":1705942218000,
+"buildDate":"2024-01-22-0850",
 "author":"Randal T Meyer"
 }
