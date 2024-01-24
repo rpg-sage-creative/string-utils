@@ -1,7 +1,7 @@
 import { assert, runTests } from "@rsc-utils/console-utils";
 import { createUrlRegex } from "../build/index.js";
 
-async function testCreateUrlRegex() {
+runTests(async function testCreateUrlRegex() {
 	const regex = createUrlRegex({ anchored:true });
 	const test = url => regex.exec(url)?.[0];
 
@@ -14,10 +14,12 @@ async function testCreateUrlRegex() {
 	goodUrls.forEach(url => assert(url, test, url));
 
 	const badUrls = [
+		// port too long
 		"https://google.com:655350/q?word=text#marked",
+		// shttp not valid
 		"shttp://google.com:80/q?word=text#marked",
+		// ftps not valid
 		"ftps://google.com:80/q?word=text#marked",
 	];
 	badUrls.forEach(url => assert(undefined, test, url));
-}
-// runTests(testCreateUrlRegex);
+});

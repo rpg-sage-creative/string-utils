@@ -1,7 +1,7 @@
 import { assert, runTests } from "@rsc-utils/console-utils";
 import { redactCodeBlocks } from "../../build/index.js";
 
-async function testRedactCodeBlocks() {
+runTests(async function testRedactCodeBlocks() {
 	const tests = [
 	//   input                          expected output
 		[" hi `redacted` no `shit` ",   " hi `********` no `****` "],
@@ -19,5 +19,4 @@ async function testRedactCodeBlocks() {
 	tests.forEach(([raw, expected]) => {
 		assert(expected, redactCodeBlocks, raw);
 	});
-}
-runTests(testRedactCodeBlocks);
+}, true);
