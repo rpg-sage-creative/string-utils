@@ -22,4 +22,35 @@ runTests(async function testCreateUrlRegex() {
 		"ftps://google.com:80/q?word=text#marked",
 	];
 	badUrls.forEach(url => assert(undefined, test, url));
+
+	const wrapRegex = createUrlRegex({ wrapChars:"<>" });
+	const wrapTest = url => wrapRegex.exec(url)?.[0];
+
+	const wrapGoodUrls = [
+		"<http://google.com/q?word=text#marked>",
+		"<https://google.com:80/q?word=text#marked>"
+	];
+	wrapGoodUrls.forEach(url => assert(url, wrapTest, url));
+
+	const wrapBadUrls = [
+		"http://google.com/q?word=text#marked",
+		"https://google.com:80/q?word=text#marked"
+	];
+	wrapBadUrls.forEach(url => assert(undefined, wrapTest, url));
+
+	const wrapOptionalRegex = createUrlRegex({ wrapChars:"<>", wrapOptional:true });
+	const wrapOptionalTest = url => wrapOptionalRegex.exec(url)?.[0];
+
+	const wrapOptionalGoodUrls = [
+		"http://google.com/q?word=text#marked",
+		"<https://google.com:80/q?word=text#marked>"
+	];
+	wrapOptionalGoodUrls.forEach(url => assert(url, wrapOptionalTest, url));
+
+	const wrapOptionalBadUrls = [
+		"shttp://google.com/q?word=text#marked",
+		"<shttps://google.com:80/q?word=text#marked>"
+	];
+	wrapOptionalBadUrls.forEach(url => assert(undefined, wrapOptionalTest, url));
+
 });
