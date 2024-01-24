@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.10",
+"version":"0.0.11",
 "branch":"main",
-"commit":"e4fbc76d43107566c5439f6a42470e5bc3c626d8",
-"commitSubject":"add stringOrUndefined",
-"commitTs":1705942084000,
-"commitDate":"2024-01-22-0848",
-"buildTs":1705942218000,
-"buildDate":"2024-01-22-0850",
+"commit":"7fda04e7f14ed1f3ba3e316075ff77b56d0be89d",
+"commitSubject":"improved testing",
+"commitTs":1706118177000,
+"commitDate":"2024-01-24-0942",
+"buildTs":1706118200000,
+"buildDate":"2024-01-24-0943",
 "author":"Randal T Meyer"
 }
