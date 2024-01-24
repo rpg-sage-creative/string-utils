@@ -6,7 +6,7 @@ export type ChunkData = {
 	chunks: string[];
 
 	/** the chunk currently being processed */
-	currentChunk: string;
+	currentChunk?: string;
 
 	/** the index of the chunk currently being processed */
 	currentIndex: number;

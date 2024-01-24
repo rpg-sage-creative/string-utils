@@ -1,8 +1,7 @@
-import { assert } from "@rsc-utils/console-utils";
-import { redactCodeBlocks } from "../build/index.js";
+import { assert, runTests } from "@rsc-utils/console-utils";
+import { redactCodeBlocks } from "../../build/index.js";
 
-/** A handful of tests to ensure the logic is working. */
-export function testRedactCodeBlocks() {
+async function testRedactCodeBlocks() {
 	const tests = [
 	//   input                          expected output
 		[" hi `redacted` no `shit` ",   " hi `********` no `****` "],
@@ -18,7 +17,7 @@ export function testRedactCodeBlocks() {
 		[" \\``\\`redacted``\\` ",      " \\``**********``\\` "],
 	];
 	tests.forEach(([raw, expected]) => {
-		const actual = redactCodeBlocks(raw);
-		assert(expected === actual, `"${raw}" expected "${expected}" got "${actual}"`);
+		assert(expected, redactCodeBlocks, raw);
 	});
 }
+runTests(testRedactCodeBlocks);

@@ -36,8 +36,8 @@ export function chunk(input: string, argOne?: number | ChunkOptions | MaxChunkLe
 
 	const data: ChunkData = {
 		chunks: [],
-		currentChunk: "",
-		currentIndex: 0,
+		currentChunk: undefined,
+		currentIndex: -1,
 		maxChunkLength: typeof options.maxChunkLength === "function"
 			? options.maxChunkLength
 			: () => options.maxChunkLength as number
@@ -47,8 +47,8 @@ export function chunk(input: string, argOne?: number | ChunkOptions | MaxChunkLe
 	lines.forEach((line, lineIndex) => chunkLine(data, options, line, lineIndex));
 
 	// If we have a trailing chunk, make sure we include it
-	if (data.currentChunk.length > 0) {
-		data.currentIndex = data.chunks.push(data.currentChunk);
+	if (data.currentChunk?.length ?? 0 > 0) {
+		data.currentIndex = data.chunks.push(data.currentChunk!);
 	}
 
 	return data.chunks;

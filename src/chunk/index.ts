@@ -3,8 +3,5 @@ export * from "./ChunkData.js";
 export * from "./chunkLine.js";
 export * from "./ChunkOptions.js";
 export * from "./chunkWord.js";
-export * from "./isMaxChunkLengthOrCallback.js";
 export * from "./MaxChunkLengthCallback.js";
-export * from "./numberToChunkOptions.js";
-export * from "./optionsToChunkOptions.js";
 export * from "./parseChunkOptions.js";

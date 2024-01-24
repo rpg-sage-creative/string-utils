@@ -1,4 +1,5 @@
-import { dequote, quote } from "../quote";
+import { dequote } from "../quote/dequote.js";
+import { quote } from "../quote/quote.js";
 import { KeyValueArg } from "./KeyValueArg.js";
 import { isKeyValueArg } from "./isKeyValueArg.js";
 

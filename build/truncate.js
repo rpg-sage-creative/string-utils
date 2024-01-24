@@ -1,4 +1,4 @@
-import { ELLIPSIS } from "./consts";
+import { ELLIPSIS } from "./consts.js";
 export function truncate(value, maxLength, ellipsis) {
     if (value === null || value === undefined) {
         return value;

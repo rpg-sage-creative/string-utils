@@ -8,14 +8,14 @@ export function chunk(input, argOne, argTwo) {
     }
     const data = {
         chunks: [],
-        currentChunk: "",
-        currentIndex: 0,
+        currentChunk: undefined,
+        currentIndex: -1,
         maxChunkLength: typeof options.maxChunkLength === "function"
             ? options.maxChunkLength
             : () => options.maxChunkLength
     };
     lines.forEach((line, lineIndex) => chunkLine(data, options, line, lineIndex));
-    if (data.currentChunk.length > 0) {
+    if (data.currentChunk?.length ?? 0 > 0) {
         data.currentIndex = data.chunks.push(data.currentChunk);
     }
     return data.chunks;

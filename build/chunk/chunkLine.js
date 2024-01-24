@@ -1,11 +1,16 @@
 import { chunkWord } from "./chunkWord.js";
-export function chunkLine(data, options, line, lineIndex) {
-    const newLine = lineIndex > 0 ? options.newLineCharacter : "";
-    if (data.currentChunk.length + newLine.length + line.length < data.maxChunkLength(data.currentIndex)) {
-        data.currentChunk += newLine + line;
+export function chunkLine(data, options, line, _lineIndex) {
+    const currentChunk = data.currentChunk ?? "";
+    const newLine = data.currentChunk !== undefined ? options.newLineCharacter : "";
+    if (currentChunk.length + newLine.length + line.length < data.maxChunkLength(data.currentIndex)) {
+        data.currentChunk = currentChunk + newLine + line;
+        data.currentIndex = Math.max(data.currentIndex, 0);
     }
     else {
-        data.currentIndex = data.chunks.push(data.currentChunk);
+        if (data.currentChunk !== undefined) {
+            data.currentIndex = data.chunks.push(data.currentChunk);
+        }
+        data.currentIndex = Math.max(data.currentIndex, 0);
         if (line.length < data.maxChunkLength(data.currentIndex)) {
             data.currentChunk = line;
         }

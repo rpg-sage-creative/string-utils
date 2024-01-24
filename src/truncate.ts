@@ -1,5 +1,5 @@
 import type { Optional } from "@rsc-utils/type-utils";
-import { ELLIPSIS } from "./consts";
+import { ELLIPSIS } from "./consts.js";
 
 /**
  * Truncates the string to the given max length (if it is longer).
