@@ -5,9 +5,6 @@ import { normalizeAscii } from "./normalize/normalizeAscii.js";
 import { removeAccents } from "./normalize/removeAccents.js";
 import { cleanWhitespace } from "./whitespace/cleanWhitespace.js";
 
-/** Convenience type for UUID | UuidMatcher */
-export type UuidMatcherResolvable = Optional<string> | StringMatcher;
-
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
 export class StringMatcher implements Matcher {
 	public constructor(value: Optional<string>) {
