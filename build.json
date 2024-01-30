@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.11",
+"version":"0.0.12",
 "branch":"main",
-"commit":"7fda04e7f14ed1f3ba3e316075ff77b56d0be89d",
-"commitSubject":"improved testing",
-"commitTs":1706118177000,
-"commitDate":"2024-01-24-0942",
-"buildTs":1706118200000,
-"buildDate":"2024-01-24-0943",
+"commit":"fb7fe5367fd9a2f35554b136c3452752a2e52031",
+"commitSubject":"removing npm-utils",
+"commitTs":1706652970000,
+"commitDate":"2024-01-30-1416",
+"buildTs":1706653005000,
+"buildDate":"2024-01-30-1416",
 "author":"Randal T Meyer"
 }
