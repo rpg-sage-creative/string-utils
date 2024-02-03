@@ -1,5 +1,6 @@
+import { debug, info, warn } from "@rsc-utils/console-utils";
+import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
 import { chunk } from "../../build/index.js";
-import { assert, debug, enableLogLevels, getAssertData, info, warn, error, runTests } from "@rsc-utils/console-utils";
 
 runTests(async function testChunk() {
 	// [expectedArray, inputString, maxLength]

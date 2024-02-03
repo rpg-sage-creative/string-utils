@@ -12,6 +12,7 @@
 	"devDependencies": {
 		"@rsc-utils/array-utils": "github:rpg-sage-creative/array-utils",
 		"@rsc-utils/console-utils": "github:rpg-sage-creative/console-utils",
+		"@rsc-utils/test-utils": "github:rpg-sage-creative/test-utils",
 		"@types/node": "^18.18.7"
 	},
 	"dependencies": {
