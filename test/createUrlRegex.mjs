@@ -54,4 +54,10 @@ runTests(async function testCreateUrlRegex() {
 	];
 	wrapOptionalBadUrls.forEach(url => assert(undefined, wrapOptionalTest, url));
 
+	const anchoredWrapOptionalRegex = createUrlRegex({ anchored:true, wrapChars:"<>", wrapOptional:true });
+	const anchoredWrapOptionalTest = url => anchoredWrapOptionalRegex.exec(url)?.[0];
+	const anchoredWrapOptionalGoodUrls = [
+		"https://cdn.discordapp.com/attachments/1173111558428184678/1204632128369983578/image.png?ex=65d57018&is=65c2fb18&hm=dfe49eddd9d55f29dd00a6d12e1bcc6e64218b7598b62827c32b15c5f0d466e3&",
+	];
+	anchoredWrapOptionalGoodUrls.forEach(url => assert(url, anchoredWrapOptionalTest, url));
 });
