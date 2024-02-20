@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.13",
+"version":"0.0.14",
 "branch":"main",
-"commit":"7721074622745cd18d35f71e11165d8ac10ee6fc",
-"commitSubject":"use test-utils",
-"commitTs":1706922221000,
-"commitDate":"2024-02-02-1703",
-"buildTs":1706922241000,
-"buildDate":"2024-02-02-1704",
+"commit":"f9cbf12fd7f26fc3051b987baae550f5627e6132",
+"commitSubject":"use allowDotNotation option",
+"commitTs":1708466676000,
+"commitDate":"2024-02-20-1404",
+"buildTs":1708466695000,
+"buildDate":"2024-02-20-1404",
 "author":"Randal T Meyer"
 }
