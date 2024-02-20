@@ -1,5 +1,7 @@
 import type { RegExpQuantifier } from "./RegExpQuantifier.js";
 type Options = {
+    /** determines if periods are allowed */
+    allowDotNotation?: boolean;
     /** how many to capture */
     quantifier?: RegExpQuantifier;
 };
