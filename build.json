@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.14",
+"version":"0.0.15",
 "branch":"main",
-"commit":"f9cbf12fd7f26fc3051b987baae550f5627e6132",
-"commitSubject":"use allowDotNotation option",
-"commitTs":1708466676000,
-"commitDate":"2024-02-20-1404",
-"buildTs":1708466695000,
-"buildDate":"2024-02-20-1404",
+"commit":"2cd56acf03ec3fe1a1fd9026319f2ed554264615",
+"commitSubject":"add isKeyValueArg tests",
+"commitTs":1708717951000,
+"commitDate":"2024-02-23-1152",
+"buildTs":1708717971000,
+"buildDate":"2024-02-23-1152",
 "author":"Randal T Meyer"
 }
