@@ -9,6 +9,12 @@ export function quote(value) {
         if (!/[„”]/.test(value)) {
             return `„${value}”`;
         }
+        if (!/[‘’]/.test(value)) {
+            return `‘${value}’`;
+        }
+        if (!value.includes(`'`)) {
+            return `'${value}'`;
+        }
     }
     return `"${value}"`;
 }
