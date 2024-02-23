@@ -49,8 +49,8 @@ runTests(async function testCreateUrlRegex() {
 	wrapOptionalGoodUrls.forEach(url => assert(url, wrapOptionalTest, url));
 
 	const wrapOptionalBadUrls = [
-		"shttp://google.com/q?word=text#marked",
-		"<shttps://google.com:80/q?word=text#marked>"
+		"ftps://google.com/q?word=text#marked",
+		"<ftps://google.com:80/q?word=text#marked>"
 	];
 	wrapOptionalBadUrls.forEach(url => assert(undefined, wrapOptionalTest, url));
 
