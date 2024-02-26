@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.16",
+"version":"0.0.17",
 "branch":"main",
-"commit":"24361d013be4292b09db136ce8464fb4c95a0d37",
-"commitSubject":"enhance wrap; add tests",
-"commitTs":1708927918000,
-"commitDate":"2024-02-25-2211",
-"buildTs":1708927989000,
-"buildDate":"2024-02-25-2213",
+"commit":"c4ff2267358a37b2299dc13079c03718056ed722",
+"commitSubject":"clean up wrap, unwrap, isWrapped; add more tests",
+"commitTs":1708931697000,
+"commitDate":"2024-02-25-2314",
+"buildTs":1708931722000,
+"buildDate":"2024-02-25-2315",
 "author":"Randal T Meyer"
 }

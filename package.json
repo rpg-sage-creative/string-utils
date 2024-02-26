@@ -1,6 +1,6 @@
 {
 	"name": "@rsc-utils/string-utils",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"license": "ISC",
 	"main": "build/index.js",
 	"type": "module",
