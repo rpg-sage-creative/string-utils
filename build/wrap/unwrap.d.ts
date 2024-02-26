@@ -1,5 +1,6 @@
-/** Used to unwrap parentheses, brackets, or braces from around a piece of text. */
-export declare function unwrap(input: string, chars: "[]"): string;
-export declare function unwrap(input: string, chars: "{}"): string;
-export declare function unwrap(input: string, chars: "()"): string;
+/**
+ * Used to unwrap a piece of text, usually (), [], or {}.
+ * If the chars argument is even, then they are split and used as left/right.
+ * If the chars argument is odd, then they are uesd as left and then they are reversed and used as right.
+ */
 export declare function unwrap(input: string, chars: string): string;

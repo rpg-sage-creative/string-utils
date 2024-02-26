@@ -1,10 +1,14 @@
+import { splitChars } from "./splitChars.js";
 export function isWrapped(input, chars) {
     const checks = [];
-    if (chars?.length === 2) {
+    if (chars?.length) {
         checks.push(chars);
     }
-    if (!checks.length) {
+    else {
         checks.push("[]", "{}", "()");
     }
-    return checks.find(([l, r]) => input.startsWith(l) && input.endsWith(r)) ?? false;
+    return checks.find(leftRight => {
+        const { left, right } = splitChars(leftRight);
+        return input.startsWith(left) && input.endsWith(right);
+    }) ?? false;
 }

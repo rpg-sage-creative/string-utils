@@ -1,7 +1,11 @@
+import { splitChars } from "./splitChars.js";
 export function unwrap(input, chars) {
-    const [l, r] = chars;
-    while (input.startsWith(l) && input.endsWith(r)) {
-        input = input.slice(1, -1);
+    const leftRight = splitChars(chars);
+    if (leftRight) {
+        const { left, right } = leftRight;
+        while (input.startsWith(left) && input.endsWith(right)) {
+            input = input.slice(left.length, -right.length);
+        }
     }
     return input;
 }
