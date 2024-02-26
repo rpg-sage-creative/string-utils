@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.15",
+"version":"0.0.16",
 "branch":"main",
-"commit":"2cd56acf03ec3fe1a1fd9026319f2ed554264615",
-"commitSubject":"add isKeyValueArg tests",
-"commitTs":1708717951000,
-"commitDate":"2024-02-23-1152",
-"buildTs":1708717971000,
-"buildDate":"2024-02-23-1152",
+"commit":"24361d013be4292b09db136ce8464fb4c95a0d37",
+"commitSubject":"enhance wrap; add tests",
+"commitTs":1708927918000,
+"commitDate":"2024-02-25-2211",
+"buildTs":1708927989000,
+"buildDate":"2024-02-25-2213",
 "author":"Randal T Meyer"
 }
