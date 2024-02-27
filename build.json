@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.17",
+"version":"0.0.18",
 "branch":"main",
-"commit":"c4ff2267358a37b2299dc13079c03718056ed722",
-"commitSubject":"clean up wrap, unwrap, isWrapped; add more tests",
-"commitTs":1708931697000,
-"commitDate":"2024-02-25-2314",
-"buildTs":1708931722000,
-"buildDate":"2024-02-25-2315",
+"commit":"bcaa32ed734a58e8c91aae2e7d91dec4594e1992",
+"commitSubject":"exit chunk early for empty/undefined input",
+"commitTs":1709073765000,
+"commitDate":"2024-02-27-1442",
+"buildTs":1709073783000,
+"buildDate":"2024-02-27-1443",
 "author":"Randal T Meyer"
 }
