@@ -12,7 +12,7 @@ runTests(async function test_isKeyValueArg() {
 	const doubleQuotedValues = quotedValues.map(value => quote(value));
 	const goodValues = empties.concat(values).concat(quotedValues).concat(doubleQuotedValues);
 	const goodTests = goodKeys.map(key => goodValues.map(val => `${key}=${val}`)).flat();
-	goodTests.forEach(test => debug(test));
+	// goodTests.forEach(test => debug(test));
 	goodTests.forEach(value => assert(true, isKeyValueArg, value));
 
 	const badValues = [``, `=`, `= `, `=" '`];
