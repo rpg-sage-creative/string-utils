@@ -1,6 +1,9 @@
 import { chunkLine } from "./chunkLine.js";
 import { parseChunkOptions } from "./parseChunkOptions.js";
 export function chunk(input, argOne, argTwo) {
+    if (!input?.length) {
+        return [];
+    }
     const options = parseChunkOptions(argOne, argTwo);
     const lines = input.split(options.lineSplitter);
     if (typeof (options.maxChunkLength) !== "function" && (options.maxChunkLength ?? 0) <= 0) {
