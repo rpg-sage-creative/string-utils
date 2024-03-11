@@ -4,12 +4,6 @@ import { isWrapped } from "../../build/index.js";
 
 runTests(async function test_unwrap() {
 	const s = "value";
-	const tests = [
-		[`(${s})`, "()"],
-		[`[${s}]`, "[]"],
-		[`{${s}}`, "{}"],
-	];
-	tests.forEach(([input, chars]) => assert(chars, isWrapped, input));
 
 	const goodTests = [
 		[s, "()", `(${s})`],
@@ -23,7 +17,7 @@ runTests(async function test_unwrap() {
 		[s, "'", `'''${s}'''`],
 		[s, "'|:", `'|:${s}:|'`],
 	];
-	goodTests.forEach(([s, chars, input]) => assert(chars, isWrapped, input, chars));
+	goodTests.forEach(([s, chars, input]) => assert(true, isWrapped, input, chars));
 
 	const badTests = [
 		[s, "(", `(${s})`],
