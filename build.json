@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.19",
+"version":"0.0.20",
 "branch":"main",
-"commit":"5285d25f634bacb38bbc66ed712e2f6ca567721a",
-"commitSubject":"update splitChars, wrap, unwrap, isWrapped; always require chars",
-"commitTs":1710173455000,
-"commitDate":"2024-03-11-0910",
-"buildTs":1710173473000,
-"buildDate":"2024-03-11-0911",
+"commit":"6e5b8577f0fb0632c1a7234d95ab8757df334cc6",
+"commitSubject":"fix isWrapped to ensure a value is between the wrapChars",
+"commitTs":1710265828000,
+"commitDate":"2024-03-12-1050",
+"buildTs":1710265855000,
+"buildDate":"2024-03-12-1050",
 "author":"Randal T Meyer"
 }
