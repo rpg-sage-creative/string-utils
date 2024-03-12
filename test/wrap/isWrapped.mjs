@@ -2,10 +2,11 @@ import { debug, info, warn } from "@rsc-utils/console-utils";
 import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
 import { isWrapped } from "../../build/index.js";
 
-runTests(async function test_unwrap() {
+runTests(async function test_isWrapped() {
 	const s = "value";
 
 	const goodTests = [
+		[s, "||", `||||`], // basically "|(||)|"
 		[s, "()", `(${s})`],
 		[s, "[]", `[${s}]`],
 		[s, "[]", `[[${s}]]`],
@@ -20,6 +21,8 @@ runTests(async function test_unwrap() {
 	goodTests.forEach(([s, chars, input]) => assert(true, isWrapped, input, chars));
 
 	const badTests = [
+		[s, "||||", `||||`],
+		[s, "()", `()`],
 		[s, "(", `(${s})`],
 	];
 	badTests.forEach(([s, chars, input]) => assert(false, isWrapped, input, chars));
