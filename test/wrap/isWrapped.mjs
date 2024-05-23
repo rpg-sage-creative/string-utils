@@ -1,5 +1,4 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { isWrapped } from "../../build/index.js";
 
 runTests(async function test_isWrapped() {
@@ -26,4 +25,4 @@ runTests(async function test_isWrapped() {
 		[s, "(", `(${s})`],
 	];
 	badTests.forEach(([s, chars, input]) => assert(false, isWrapped, input, chars));
-});
+}, true);

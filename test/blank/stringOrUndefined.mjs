@@ -1,8 +1,7 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { stringOrUndefined } from "../../build/index.js";
 
-runTests(async function teststringOrUndefined() {
+runTests(async function test_stringOrUndefined() {
 	const nonBlankTests = ["bob", "."];
 	nonBlankTests.forEach(s => assert(s, stringOrUndefined, s));
 

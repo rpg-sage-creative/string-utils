@@ -1,6 +1,5 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
-import { isKeyValueArg, wrap, quote } from "../../build/index.js";
+import { assert, runTests } from "@rsc-utils/core-utils";
+import { isKeyValueArg, quote, wrap } from "../../build/index.js";
 
 runTests(async function test_isKeyValueArg() {
 	// “”, „“, „”, "", '', ‘’
@@ -19,4 +18,4 @@ runTests(async function test_isKeyValueArg() {
 	const badTests = goodKeys.map(key => badValues.map(val => key+val)).flat();
 	badTests.forEach(value => assert(false, isKeyValueArg, value));
 
-});
+}, true);

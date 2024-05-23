@@ -1,4 +1,4 @@
-import { type Matcher, type MatcherResolvable, type Optional } from "@rsc-utils/type-utils";
+import { type Matcher, type MatcherResolvable, type Optional } from "@rsc-utils/core-utils";
 /** A reusable object for comparing a string without the need to repeatedly manipulate the value. */
 export declare class StringMatcher implements Matcher {
     constructor(value: Optional<string>);

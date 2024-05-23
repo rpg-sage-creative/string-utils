@@ -1,8 +1,7 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { createUrlRegex } from "../build/index.js";
 
-runTests(async function testCreateUrlRegex() {
+runTests(async function test_createUrlRegex() {
 	const regex = createUrlRegex({ anchored:true });
 	const test = url => regex.exec(url)?.[0];
 
@@ -60,4 +59,4 @@ runTests(async function testCreateUrlRegex() {
 		"https://cdn.discordapp.com/attachments/1173111558428184678/1204632128369983578/image.png?ex=65d57018&is=65c2fb18&hm=dfe49eddd9d55f29dd00a6d12e1bcc6e64218b7598b62827c32b15c5f0d466e3&",
 	];
 	anchoredWrapOptionalGoodUrls.forEach(url => assert(url, anchoredWrapOptionalTest, url));
-});
+}, true);

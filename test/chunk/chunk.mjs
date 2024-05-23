@@ -1,5 +1,4 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { chunk } from "../../build/index.js";
 
 runTests(async function test_chunk() {

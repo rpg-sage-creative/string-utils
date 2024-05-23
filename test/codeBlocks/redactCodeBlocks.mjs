@@ -1,8 +1,7 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { redactCodeBlocks } from "../../build/index.js";
 
-runTests(async function testRedactCodeBlocks() {
+runTests(async function test_redactCodeBlocks() {
 	const tests = [
 	//   input                          expected output
 		[" hi `redacted` no `shit` ",   " hi `********` no `****` "],

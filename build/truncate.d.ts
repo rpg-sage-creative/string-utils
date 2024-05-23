@@ -1,4 +1,4 @@
-import type { Optional } from "@rsc-utils/type-utils";
+import type { Optional } from "@rsc-utils/core-utils";
 /**
  * Truncates the string to the given max length (if it is longer).
  * @param value The string to be truncated.

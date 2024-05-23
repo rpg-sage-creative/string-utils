@@ -1,8 +1,7 @@
-import { debug, info, warn } from "@rsc-utils/console-utils";
-import { assert, runTests, startAsserting, stopAsserting } from "@rsc-utils/test-utils";
+import { assert, runTests } from "@rsc-utils/core-utils";
 import { getCodeBlockSafeSplitter } from "../../build/index.js";
 
-runTests(async function testGetCodeBlockSafeSplitter() {
+runTests(async function test_getCodeBlockSafeSplitter() {
 	const splitter = getCodeBlockSafeSplitter("\n");
 	/** @type {[string, number | string[], string[] | undefined][]} */
 	const strings = [
