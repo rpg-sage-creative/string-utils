@@ -8,8 +8,8 @@ export function parseAttributes(attributesString) {
     if (!matches) {
         return attributes;
     }
-    const pairRegex = /(\w+)="([^"]+)"/i;
     matches.forEach(pair => {
+        const pairRegex = /(\w+)="([^"]+)"/i;
         const match = pairRegex.exec(pair);
         if (match) {
             attributes.set(match[1], match[2]);
