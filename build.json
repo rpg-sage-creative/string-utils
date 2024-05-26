@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.21",
+"version":"0.0.22",
 "branch":"main",
-"commit":"3728827a814350aa865aa3bfdd291999aed74973",
-"commitSubject":"update tests",
-"commitTs":1716508371000,
-"commitDate":"2024-05-23-1652",
-"buildTs":1716508403000,
-"buildDate":"2024-05-23-1653",
+"commit":"7a7701709df38719c859ade2c8b762e896595da5",
+"commitSubject":"stop reusing regex for exec",
+"commitTs":1716699009000,
+"commitDate":"2024-05-25-2150",
+"buildTs":1716699035000,
+"buildDate":"2024-05-25-2150",
 "author":"Randal"
 }
