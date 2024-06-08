@@ -1,4 +1,4 @@
-import { RegExpQuantifier } from "../regex/RegExpQuantifier.js";
+import { type RegExpQuantifier } from "../regex/RegExpQuantifier.js";
 type Options = {
     /** uses HORIZONTAL_WHITESPACE_REGEX if true, \s otherwise */
     horizontalOnly?: boolean;

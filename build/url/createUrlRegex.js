@@ -1,3 +1,4 @@
+import {} from "../regex/RegExpCreateOptions.js";
 import { wrap } from "../wrap/wrap.js";
 function getProtocolRegex() {
     return /(?:s?ftp|https?):\/\//i;

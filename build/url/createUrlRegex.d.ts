@@ -1,4 +1,4 @@
-import { RegExpCreateOptions } from "../regex/RegExpCreateOptions.js";
+import { type RegExpCreateOptions } from "../regex/RegExpCreateOptions.js";
 type Options = Omit<RegExpCreateOptions, "quantifier"> & {
     /** use ^ and $ to anchor the url to the start/end of the string */
     anchored?: boolean;
