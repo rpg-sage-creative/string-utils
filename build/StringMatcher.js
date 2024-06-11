@@ -44,7 +44,7 @@ export class StringMatcher {
         return args.flat(1).some(value => this.matches(value));
     }
     toString() {
-        return this.value ?? "";
+        return this.value;
     }
     static clean(value) {
         return cleanWhitespace(normalizeAscii(removeAccents(String(value ?? "")))).toLowerCase();

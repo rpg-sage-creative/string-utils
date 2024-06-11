@@ -17,7 +17,7 @@ export declare class StringMatcher implements Matcher {
     /** The value used to compare to other values. */
     get matchValue(): string;
     /** Stores the raw value. */
-    value?: string | null;
+    value: Optional<string>;
     /** Compares the clean values. */
     matches<T extends MatcherResolvable>(other: T): boolean;
     /** Returns true if any of the given values are considered a match. */
@@ -25,7 +25,7 @@ export declare class StringMatcher implements Matcher {
     /** Returns true if any of the given values are considered a match. */
     matchesAny<T extends MatcherResolvable>(...values: T[]): boolean;
     /** Returns the original value. */
-    toString(): string;
+    toString(): Optional<string>;
     /**
      * Cleans the given value to make comparisons more reliable.
      * Convenience for cleanWhitespace(normalizeAscii(removeAccents(String(value ?? "")))).toLowerCase()
