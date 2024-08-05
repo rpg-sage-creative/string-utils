@@ -1,12 +1,12 @@
 {
 "name":"@rsc-utils/string-utils",
-"version":"0.0.24",
+"version":"0.0.25",
 "branch":"main",
-"commit":"b6ea6b6e3ce69a96a22871185c4d55335a8d8f4c",
-"commitSubject":"update core-utils",
-"commitTs":1718085362000,
-"commitDate":"2024-06-10-2256",
-"buildTs":1718085396000,
-"buildDate":"2024-06-10-2256",
+"commit":"0b1c95313123371153ce12385123feee4ee978fb",
+"commitSubject":"allow dashses in arg keys",
+"commitTs":1722887178000,
+"commitDate":"2024-08-05-1246",
+"buildTs":1722887196000,
+"buildDate":"2024-08-05-1246",
 "author":"Randal"
 }
