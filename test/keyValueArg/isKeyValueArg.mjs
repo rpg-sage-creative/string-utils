@@ -4,7 +4,7 @@ import { isKeyValueArg, quote, wrap } from "../../build/index.js";
 runTests(async function test_isKeyValueArg() {
 	// “”, „“, „”, "", '', ‘’
 	const quotes = [`“”`, `„“`, `„”`, `""`, `''`, `‘’`, "``"];
-	const goodKeys = ["lower", "UPPER", "camelCase", "dot.notation"];
+	const goodKeys = ["lower", "UPPER", "camelCase", "dot.notation", "dash-notation"];
 	const empties = quotes.map(quotes => wrap("", quotes));
 	const values = quotes.map(quotes => wrap("value", quotes));
 	const quotedValues = values.map(value => quote(`quoted ${value}`));
