@@ -3,8 +3,16 @@ import { wrap } from "../wrap/wrap.js";
 function getProtocolRegex() {
     return /(?:s?ftp|https?):\/\//i;
 }
+function getAuthRegex() {
+    return /(?:\S+(?::\S*)?@)?/i;
+}
 function getDomainRegex() {
-    return /(?:[a-z\d](?:[a-z\d-]*[a-z\d])?\.)+[a-z]{2,}/i;
+    const alpha = `[a-z\\u00a1-\\uffff]`;
+    const alphaNumeric = `[a-z\\u00a1-\\uffff0-9]`;
+    const host = `(?:(?:${alphaNumeric}[-_]*)*${alphaNumeric}+)`;
+    const domain = `(?:\\.(?:${alphaNumeric}-*)*${alphaNumeric}+)*`;
+    const tld = `(?:${alpha}{2,})`;
+    return new RegExp(host + domain + tld, "i");
 }
 function getIp4Regex() {
     return /(?:\d{1,3}\.){3}\d{1,3}/;
@@ -19,7 +27,7 @@ function getHostnameRegex() {
     return new RegExp(`(?:${regex})`, "i");
 }
 function getPortRegex() {
-    return /(?::\d{1,5})?/;
+    return /(?::\d{2,5})?/;
 }
 function getPathRegex() {
     return /(?:\/[-a-z\d%_.~+]*)*/i;
@@ -35,6 +43,7 @@ export function createUrlRegex(options) {
     const flags = options?.globalFlag ? "gi" : "i";
     const sources = [
         getProtocolRegex().source,
+        getAuthRegex().source,
         getHostnameRegex().source,
         getPortRegex().source,
         getPathRegex().source,
